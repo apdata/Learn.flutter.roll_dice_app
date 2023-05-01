@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'styled_text.dart';
 
 // Dateiname immer Bezeichnungen mit _ und die Klassen darin ohne _
 
@@ -19,13 +20,7 @@ class GradientContainer extends StatelessWidget {
         ),
       ),
       child: const Center(
-        child: Text(
-          'Hallo Welt!',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 28,
-          ),
-        ),
+        child: StyledText(),
       ),
     );
   }
