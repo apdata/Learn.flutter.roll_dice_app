@@ -7,22 +7,25 @@ var startAlignment = Alignment.topLeft;
 var endAlignment = Alignment.bottomRight;
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({super.key});
+  const GradientContainer(this.startColor, this.endColor, {super.key});
+
+  final Color startColor;
+  final Color endColor;
 
   @override
   Widget build(context) {
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: const [
-            Color.fromARGB(255, 26, 2, 80),
-            Color.fromARGB(255, 45, 7, 98),
+          colors: [
+            startColor,
+            endColor,
           ],
           begin: startAlignment,
           end: endAlignment,
         ),
       ),
-      child: Center(
+      child: const Center(
         child: StyledText('Placed Text APX!'),
       ),
     );
