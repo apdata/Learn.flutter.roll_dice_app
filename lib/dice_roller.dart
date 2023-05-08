@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 class DiceRoller extends StatefulWidget {
@@ -11,14 +12,15 @@ class DiceRoller extends StatefulWidget {
 
 // Klassen mit Unterstrich als Prefix sind private
 class _DiceRollerState extends State<DiceRoller> {
-  var activeDiceImage = 'assets/images/dice-1.png';
+  final randomizer = Random();
+  var currentDiceRoll = 2;
 
   void rollDice() {
     // Ändern von Variablen muss in einer anonymen Methode innerhalb
     // von setState() passieren, damit anschließend die UI neu
     // ausgewertet wird.
     setState(() {
-      activeDiceImage = 'assets/images/dice-4.png';
+      currentDiceRoll = randomizer.nextInt(6) + 1;
     });
   }
 
@@ -28,7 +30,7 @@ class _DiceRollerState extends State<DiceRoller> {
       mainAxisSize: MainAxisSize.min,
       children: [
         Image.asset(
-          activeDiceImage,
+          'assets/images/dice-$currentDiceRoll.png',
           width: 200,
         ),
         // Alternative zum Padding
